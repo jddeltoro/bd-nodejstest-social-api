@@ -1,4 +1,4 @@
-# Social Emulator App
+# Social Emulator Api
 
 This is a Node.js and MongoDB based API for a social emulator app. It was created for BairesDev Nodejs Test
 
