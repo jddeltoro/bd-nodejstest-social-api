@@ -1,10 +1,12 @@
 const express  = require('express');
 const app = express();
 const mongoose = require('mongoose');
+
 const postRoute = require('./routes/post.route');
 const actionRoute = require('./routes/action.route');
 const commentRoute = require('./routes/comment.route');
 const userRoute = require('./routes/user.route');
+
 const dotenv = require('dotenv');
 dotenv.config();
 const PORT = process.env.PORT || 3001;
