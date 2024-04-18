@@ -68,6 +68,33 @@ const unlikePost = async (req, res) => {
     }
 };
 
+const getLikes = async (req, res) => {
+    try {
+        const likes = await Like.find();
+        res.json(likes);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+};
+
+const getLike = async (req, res) => {
+    try {
+        const like = await Like.findById(req.params.id);
+        res.json(like);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+};
+
+const getLikesByPost = async (req, res) => {
+    try {
+        const likes = await Like.find({ post: req.params.id });
+        res.json(likes);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+};
+
 module.exports = {
     likePost,
     unlikePost
