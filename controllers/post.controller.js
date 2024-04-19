@@ -52,10 +52,20 @@ const deletePost = async (req, res) => {
     }
 };
 
+const getPostsByUser = async (req, res) => {
+    try {
+        const posts = await Post.find({ user: req.params.id });
+        res.json(posts);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+};
+
 module.exports = {
     getAllPosts,
     getPostById,
     createPost,
     updatePost,
-    deletePost
+    deletePost,
+    getPostsByUser
 };
