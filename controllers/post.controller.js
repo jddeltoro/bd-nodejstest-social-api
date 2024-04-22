@@ -61,6 +61,15 @@ const getPostsByUser = async (req, res) => {
     }
 };
 
+const softDeletePost = async (req, res) => {
+    try {
+        const post = await Post.findByIdAndUpdate(req.params.id, { isDeleted: true }, { new: true });
+        res.json(post);
+    } catch (err) {
+        res.status(400).json({ message: err.message });
+    }
+};
+
 module.exports = {
     getAllPosts,
     getPostById,
